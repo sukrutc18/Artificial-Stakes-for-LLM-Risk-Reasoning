@@ -1,0 +1,21 @@
+# Purpose-built multi-step budget allocation env. Outcomes are sampled from a
+# known distribution; the env state is the carried budget.
+name: sequential_budget
+loader: risk_reasoning.envs.sequential_budget:make_env
+task_type: sequential
+num_episodes: 3
+horizon: 20
+
+env:
+  actions: ["allocate_low", "allocate_med", "allocate_high", "skip"]
+  reward_distribution: "gaussian_mixture"
+  reward_params:
+    components:
+      - { weight: 0.7, mean: 1.0,  std: 0.3 }
+      - { weight: 0.3, mean: -2.0, std: 1.0 }
+  initial_budget: 1000.0
+  bankruptcy: true
+
+metrics:
+  primary: regret
+  also: [cumulative_reward, budget_efficiency, recovery_rate, mistake_propagation]

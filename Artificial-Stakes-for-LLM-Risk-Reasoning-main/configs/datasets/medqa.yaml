@@ -1,0 +1,13 @@
+# MedQA (USMLE-style): multiple-choice medical decision making.
+name: medqa
+loader: risk_reasoning.data.medqa:load
+task_type: mcq
+hf_path: "bigbio/med_qa"
+hf_config: "med_qa_en_source"
+hf_revision: "1ee3f2691c791cc300143cabd7e67238da633076"
+split: test
+max_items: 400
+
+metrics:
+  primary: accuracy
+  also: [calibration, reasoning_proxies]

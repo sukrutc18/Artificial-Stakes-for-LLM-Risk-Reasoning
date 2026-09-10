@@ -1,0 +1,18 @@
+# Claude Sonnet used as automated evaluator for reasoning coherence + coverage.
+name: claude_sonnet_judge
+backend: anthropic
+api_model_id: "claude-sonnet-4-5"
+role: judge
+
+serving:
+  api_key: ${oc.env:ANTHROPIC_API_KEY}
+
+generation_defaults:
+  temperature: 0.0
+  max_new_tokens: 1024
+
+rubric:
+  coherence: true
+  reasoning_coverage: true
+  risk_factors_enumerated: true
+  alternatives_considered: true

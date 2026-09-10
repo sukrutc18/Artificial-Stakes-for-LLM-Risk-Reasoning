@@ -1,0 +1,21 @@
+# Synthetic expected-value and probability problems with derivable ground truth.
+name: synthetic_ev
+loader: risk_reasoning.data.synthetic:load
+task_type: mcq            # mcq | numeric | sequential
+num_items: 500
+seed: 42
+
+generator:
+  families:
+    - ev_two_option
+    - ev_three_option
+    - conditional_probability
+    - base_rate
+    - bayes_update
+  difficulty: mixed       # easy | medium | hard | mixed
+  distractor_strategy: confusable_ev
+  include_confidence_prompt: true
+
+metrics:
+  primary: accuracy
+  also: [calibration, reasoning_proxies]

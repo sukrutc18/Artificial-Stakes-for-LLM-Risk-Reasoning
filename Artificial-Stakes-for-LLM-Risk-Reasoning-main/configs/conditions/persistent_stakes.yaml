@@ -1,0 +1,18 @@
+# Condition 3: persistent virtual budget that updates based on decision quality.
+# This is the primary treatment condition in the hypothesis.
+name: persistent_stakes
+framing: persistent
+description: >
+  The model sees a visible budget that carries across a sequence of problems and
+  depletes / grows based on outcome. Tests whether persistent resource stakes
+  improve risk reasoning.
+uses_budget: true
+uses_cot_scaffold: false
+feedback: outcome_and_budget
+
+budget:
+  initial: 1000.0
+  stake_per_item: 100.0
+  reward_fn: symmetric     # symmetric | asymmetric_loss | log_score
+  floor: 0.0               # terminate sequence if budget hits floor?
+  visible: true

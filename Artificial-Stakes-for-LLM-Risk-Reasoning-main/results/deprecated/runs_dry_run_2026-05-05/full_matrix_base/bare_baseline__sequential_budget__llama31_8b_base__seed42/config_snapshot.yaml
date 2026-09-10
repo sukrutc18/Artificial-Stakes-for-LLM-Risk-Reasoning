@@ -1,0 +1,84 @@
+conditions:
+- bare_baseline
+- surface_stakes
+- persistent_stakes
+- cot_only
+datasets:
+- synthetic_ev
+- convfinqa
+- arc_challenge
+- medqa
+- sequential_budget
+models:
+- llama31_8b_base
+judge_model: claude_sonnet_judge
+n_samples: 4
+seeds:
+- 42
+max_items: 1
+logging:
+  run_name: full_matrix_base
+cell:
+  condition: bare_baseline
+  dataset: sequential_budget
+  model: llama31_8b_base
+  seed: 42
+  n_samples: 4
+  extra:
+    condition_cfg:
+      name: bare_baseline
+      framing: bare
+      description: 'No stakes language and no reasoning scaffold. The model sees the
+        raw task only. Serves as the lower-floor baseline.
+
+        '
+      uses_budget: false
+      uses_cot_scaffold: false
+      feedback: none
+    dataset_cfg:
+      name: sequential_budget
+      loader: risk_reasoning.envs.sequential_budget:make_env
+      task_type: sequential
+      num_episodes: 5
+      horizon: 20
+      env:
+        actions:
+        - allocate_low
+        - allocate_med
+        - allocate_high
+        - skip
+        reward_distribution: gaussian_mixture
+        reward_params:
+          components:
+          - weight: 0.7
+            mean: 1.0
+            std: 0.3
+          - weight: 0.3
+            mean: -2.0
+            std: 1.0
+        initial_budget: 1000.0
+        bankruptcy: true
+      metrics:
+        primary: regret
+        also:
+        - cumulative_reward
+        - budget_efficiency
+        - recovery_rate
+        - mistake_propagation
+    model_cfg:
+      name: llama31_8b_base
+      backend: vllm
+      hf_id: meta-llama/Meta-Llama-3.1-8B
+      role: subject
+      serving:
+        base_url: http://localhost:8000/v1
+        api_key: EMPTY
+        dtype: bfloat16
+        max_model_len: 8192
+        tensor_parallel_size: 1
+      generation_defaults:
+        temperature: 0.7
+        top_p: 0.95
+        max_new_tokens: 1024
+      tokenizer:
+        chat_template: null

@@ -1,0 +1,9 @@
+# Condition 1: no framing, no stakes, no CoT prompt.
+name: bare_baseline
+framing: bare
+description: >
+  No stakes language and no reasoning scaffold. The model sees the raw task only.
+  Serves as the lower-floor baseline.
+uses_budget: false
+uses_cot_scaffold: false
+feedback: none            # none | outcome_only | outcome_and_budget

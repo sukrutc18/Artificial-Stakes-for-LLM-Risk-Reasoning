@@ -1,0 +1,16 @@
+# ConvFinQA: conversational financial reasoning over tables + text.
+name: convfinqa
+loader: risk_reasoning.data.convfinqa:load
+task_type: numeric
+hf_path: "ChanceFocus/flare-convfinqa"
+split: valid
+max_items: 300
+
+preprocessing:
+  flatten_turns: true
+  include_tables_as_markdown: true
+
+metrics:
+  primary: accuracy
+  tolerance: 0.01          # relative tolerance for numeric answers
+  also: [calibration, reasoning_proxies]

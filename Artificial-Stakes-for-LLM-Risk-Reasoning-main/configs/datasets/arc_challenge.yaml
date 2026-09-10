@@ -1,0 +1,12 @@
+# ARC-Challenge: grade-school science multiple choice requiring logical reasoning.
+name: arc_challenge
+loader: risk_reasoning.data.arc:load
+task_type: mcq
+hf_path: "allenai/ai2_arc"
+hf_config: "ARC-Challenge"
+split: test
+max_items: 500
+
+metrics:
+  primary: accuracy
+  also: [calibration, reasoning_proxies]

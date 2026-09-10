@@ -1,0 +1,20 @@
+# Llama-3.1-8B-Instruct.
+name: llama31_8b_instruct
+backend: vllm
+hf_id: "meta-llama/Meta-Llama-3.1-8B-Instruct"
+role: subject
+
+serving:
+  base_url: ${oc.env:VLLM_BASE_URL,http://localhost:8000/v1}
+  api_key: ${oc.env:VLLM_API_KEY,EMPTY}
+  dtype: bfloat16
+  max_model_len: 8192
+  tensor_parallel_size: 1
+
+generation_defaults:
+  temperature: 0.7
+  top_p: 0.95
+  max_new_tokens: 1024
+
+tokenizer:
+  chat_template: "llama-3.1"

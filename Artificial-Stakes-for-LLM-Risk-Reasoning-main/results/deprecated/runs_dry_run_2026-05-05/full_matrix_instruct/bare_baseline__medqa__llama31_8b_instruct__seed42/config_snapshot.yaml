@@ -1,0 +1,68 @@
+conditions:
+- bare_baseline
+- surface_stakes
+- persistent_stakes
+- cot_only
+datasets:
+- synthetic_ev
+- convfinqa
+- arc_challenge
+- medqa
+- sequential_budget
+models:
+- llama31_8b_instruct
+judge_model: claude_sonnet_judge
+n_samples: 4
+seeds:
+- 42
+max_items: 1
+logging:
+  run_name: full_matrix_instruct
+cell:
+  condition: bare_baseline
+  dataset: medqa
+  model: llama31_8b_instruct
+  seed: 42
+  n_samples: 4
+  extra:
+    condition_cfg:
+      name: bare_baseline
+      framing: bare
+      description: 'No stakes language and no reasoning scaffold. The model sees the
+        raw task only. Serves as the lower-floor baseline.
+
+        '
+      uses_budget: false
+      uses_cot_scaffold: false
+      feedback: none
+    dataset_cfg:
+      name: medqa
+      loader: risk_reasoning.data.medqa:load
+      task_type: mcq
+      hf_path: bigbio/med_qa
+      hf_config: med_qa_en_source
+      hf_revision: 1ee3f2691c791cc300143cabd7e67238da633076
+      split: test
+      max_items: 400
+      metrics:
+        primary: accuracy
+        also:
+        - calibration
+        - reasoning_proxies
+    model_cfg:
+      name: llama31_8b_instruct
+      backend: vllm
+      hf_id: meta-llama/Meta-Llama-3.1-8B-Instruct
+      role: subject
+      serving:
+        base_url: http://localhost:8000/v1
+        api_key: EMPTY
+        dtype: bfloat16
+        max_model_len: 8192
+        tensor_parallel_size: 1
+      generation_defaults:
+        temperature: 0.7
+        top_p: 0.95
+        max_new_tokens: 1024
+      tokenizer:
+        chat_template: llama-3.1

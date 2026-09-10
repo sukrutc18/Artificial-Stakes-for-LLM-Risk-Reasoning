@@ -1,0 +1,9 @@
+# Condition 2: one-shot mention of stakes in the system prompt, but no carried state.
+name: surface_stakes
+framing: surface
+description: >
+  System prompt mentions a budget / stakes once. Budget does not persist or update
+  across items. Isolates the effect of stakes language alone from state.
+uses_budget: false
+uses_cot_scaffold: false
+feedback: outcome_only

@@ -1,0 +1,53 @@
+# Local stack for experiments. Bring up with:
+#   docker compose -f docker/docker-compose.yml up --build
+#
+# Requires the NVIDIA Container Toolkit for GPU passthrough.
+services:
+  vllm:
+    image: vllm/vllm-openai:latest
+    container_name: risk-vllm
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - ../.env
+    volumes:
+      - hf-cache:/root/.cache/huggingface
+    command: >
+      --model meta-llama/Meta-Llama-3.1-8B-Instruct
+      --dtype bfloat16
+      --max-model-len 8192
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  experiments:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: risk-experiments
+    working_dir: /workspace
+    env_file:
+      - ../.env
+    environment:
+      VLLM_BASE_URL: http://vllm:8000/v1
+    depends_on:
+      - vllm
+    volumes:
+      - ..:/workspace
+      - hf-cache:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: tail -f /dev/null
+
+volumes:
+  hf-cache:

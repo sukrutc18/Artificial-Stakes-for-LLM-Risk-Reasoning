@@ -1,0 +1,218 @@
+[
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "bare_baseline__arc_challenge__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "bare_baseline__convfinqa__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "bare_baseline__medqa__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "n_episodes": 5,
+    "mean_episode_reward": 0.0,
+    "cumulative_regret_final": 19.99999999999996,
+    "budget_efficiency_mean": 1.0,
+    "recovery_rate": 0.0,
+    "mistake_propagation": 0.0,
+    "_cell_id": "bare_baseline__sequential_budget__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "bare_baseline__synthetic_ev__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "cot_only__arc_challenge__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "cot_only__convfinqa__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "cot_only__medqa__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "n_episodes": 5,
+    "mean_episode_reward": 0.577211804747779,
+    "cumulative_regret_final": 17.1139409762611,
+    "budget_efficiency_mean": 1.4099999999999997,
+    "recovery_rate": 0.0,
+    "mistake_propagation": 0.0,
+    "_cell_id": "cot_only__sequential_budget__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "cot_only__synthetic_ev__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": 900.0,
+    "_cell_id": "persistent_stakes__arc_challenge__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": 900.0,
+    "_cell_id": "persistent_stakes__convfinqa__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": 900.0,
+    "_cell_id": "persistent_stakes__medqa__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "n_episodes": 5,
+    "mean_episode_reward": 0.509517749486867,
+    "cumulative_regret_final": 17.452411252565657,
+    "budget_efficiency_mean": 1.3,
+    "recovery_rate": 0.0,
+    "mistake_propagation": 0.0,
+    "_cell_id": "persistent_stakes__sequential_budget__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": 900.0,
+    "_cell_id": "persistent_stakes__synthetic_ev__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "surface_stakes__arc_challenge__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "surface_stakes__convfinqa__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "surface_stakes__medqa__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "n_episodes": 5,
+    "mean_episode_reward": 0.3593382533297132,
+    "cumulative_regret_final": 18.203308733351424,
+    "budget_efficiency_mean": 1.35,
+    "recovery_rate": 0.0,
+    "mistake_propagation": 0.0,
+    "_cell_id": "surface_stakes__sequential_budget__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  },
+  {
+    "single": 0.0,
+    "majority_vote": 0.0,
+    "best_of_n": 0.0,
+    "n_items": 1,
+    "n_samples": 4,
+    "bankrupt": false,
+    "final_budget": null,
+    "_cell_id": "surface_stakes__synthetic_ev__llama31_8b_base__seed42",
+    "_run_dir": "results/runs/full_matrix_base"
+  }
+]

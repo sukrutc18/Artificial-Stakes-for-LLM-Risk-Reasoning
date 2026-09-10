@@ -1,0 +1,31 @@
+# Shared defaults applied to every experiment. Individual condition/dataset/model
+# configs override fields here. Consumed by `risk_reasoning.experiments.runner`.
+
+seed: 42
+n_samples: 8            # independent samples per (item, condition)
+max_items: null         # cap items per dataset (null = use all)
+
+generation:
+  max_new_tokens: 1024
+  temperature: 0.7
+  top_p: 0.95
+  stop: []
+
+aggregation:
+  methods: ["single", "majority_vote", "best_of_n"]
+  best_of_n_by: "confidence"    # one of: confidence, judge, logprob
+
+logging:
+  results_dir: ${oc.env:RISK_REASONING_RESULTS_DIR,./results}
+  run_name: null                # auto-generated from timestamp + hash if null
+  log_level: INFO
+  persist_traces: true
+
+judge:
+  enabled: true
+  model_ref: claude_sonnet_judge
+
+reproducibility:
+  deterministic: true
+  save_git_sha: true
+  save_config_snapshot: true

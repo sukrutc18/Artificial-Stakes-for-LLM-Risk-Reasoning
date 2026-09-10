@@ -1,0 +1,18 @@
+{
+  "bare_baseline": {
+    "coherence": 0.2655172413793108,
+    "reasoning_coverage": 0.01206896551724138
+  },
+  "cot_only": {
+    "coherence": 0.1038793103448275,
+    "reasoning_coverage": 0.05948275862068963
+  },
+  "persistent_stakes": {
+    "coherence": 0.21896551724137955,
+    "reasoning_coverage": 0.08879310344827578
+  },
+  "surface_stakes": {
+    "coherence": 0.06363636363636364,
+    "reasoning_coverage": 0.00681818181818182
+  }
+}

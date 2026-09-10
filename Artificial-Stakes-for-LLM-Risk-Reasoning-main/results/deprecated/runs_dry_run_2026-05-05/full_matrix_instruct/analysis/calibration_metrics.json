@@ -1,0 +1,26 @@
+{
+  "bare_baseline": {
+    "n": 16,
+    "accuracy": 0.25,
+    "ece": 0.7125,
+    "brier": 0.703125
+  },
+  "cot_only": {
+    "n": 12,
+    "accuracy": 0.3333333333333333,
+    "ece": 0.6833333333333333,
+    "brier": 0.6108333333333335
+  },
+  "persistent_stakes": {
+    "n": 12,
+    "accuracy": 0.3333333333333333,
+    "ece": 0.6166666666666665,
+    "brier": 0.6375
+  },
+  "surface_stakes": {
+    "n": 16,
+    "accuracy": 0.5,
+    "ece": 0.4625,
+    "brier": 0.453125
+  }
+}

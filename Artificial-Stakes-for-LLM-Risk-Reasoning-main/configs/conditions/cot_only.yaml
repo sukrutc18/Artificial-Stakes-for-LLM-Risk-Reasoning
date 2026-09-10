@@ -1,0 +1,11 @@
+# Condition 4: CoT reasoning scaffold without any stakes language.
+# Controls for the possibility that stakes just elicit more reasoning tokens.
+name: cot_only
+framing: cot_only
+description: >
+  Explicit CoT scaffold ("think step by step, consider alternatives and risks")
+  with no mention of budgets or stakes. Separates reasoning elicitation from the
+  effect of stakes per se.
+uses_budget: false
+uses_cot_scaffold: true
+feedback: outcome_only

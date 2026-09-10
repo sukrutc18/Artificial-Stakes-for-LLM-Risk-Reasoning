@@ -1,0 +1,28 @@
+# Base-model half of the full matrix.
+# Usage: python scripts/run_experiment.py --config configs/experiments/full_matrix_base.yaml
+# Run while vLLM is serving meta-llama/Meta-Llama-3.1-8B (base) on port 8000.
+
+conditions:
+  - bare_baseline
+  - surface_stakes
+  - persistent_stakes
+  - cot_only
+
+datasets:
+  - synthetic_ev
+  - convfinqa
+  - arc_challenge
+  - medqa
+  - sequential_budget
+
+models:
+  - llama31_8b_base
+
+judge_model: claude_sonnet_judge
+
+n_samples: 4
+seeds: [42]
+max_items: 25
+
+logging:
+  run_name: full_matrix_base

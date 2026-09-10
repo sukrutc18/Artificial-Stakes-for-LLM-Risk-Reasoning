@@ -1,0 +1,8 @@
+{
+  "bare_baseline": {
+    "n": 4,
+    "accuracy": 0.0,
+    "ece": 1.0,
+    "brier": 1.0
+  }
+}
