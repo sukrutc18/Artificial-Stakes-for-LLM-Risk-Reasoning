@@ -1,0 +1,9 @@
+{
+  "single": 0.08,
+  "majority_vote": 0.08,
+  "best_of_n": 0.08,
+  "n_items": 25,
+  "n_samples": 4,
+  "bankrupt": false,
+  "final_budget": null
+}

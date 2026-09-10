@@ -1,0 +1,82 @@
+conditions:
+- bare_baseline
+- surface_stakes
+- persistent_stakes
+- cot_only
+datasets:
+- synthetic_ev
+- convfinqa
+- arc_challenge
+- medqa
+- sequential_budget
+models:
+- llama31_8b_base
+judge_model: claude_sonnet_judge
+n_samples: 4
+seeds:
+- 42
+max_items: 25
+logging:
+  run_name: full_matrix_base
+cell:
+  condition: persistent_stakes
+  dataset: synthetic_ev
+  model: llama31_8b_base
+  seed: 42
+  n_samples: 4
+  extra:
+    condition_cfg:
+      name: persistent_stakes
+      framing: persistent
+      description: 'The model sees a visible budget that carries across a sequence
+        of problems and depletes / grows based on outcome. Tests whether persistent
+        resource stakes improve risk reasoning.
+
+        '
+      uses_budget: true
+      uses_cot_scaffold: false
+      feedback: outcome_and_budget
+      budget:
+        initial: 1000.0
+        stake_per_item: 100.0
+        reward_fn: symmetric
+        floor: 0.0
+        visible: true
+    dataset_cfg:
+      name: synthetic_ev
+      loader: risk_reasoning.data.synthetic:load
+      task_type: mcq
+      num_items: 500
+      seed: 42
+      generator:
+        families:
+        - ev_two_option
+        - ev_three_option
+        - conditional_probability
+        - base_rate
+        - bayes_update
+        difficulty: mixed
+        distractor_strategy: confusable_ev
+        include_confidence_prompt: true
+      metrics:
+        primary: accuracy
+        also:
+        - calibration
+        - reasoning_proxies
+    model_cfg:
+      name: llama31_8b_base
+      backend: vllm
+      hf_id: meta-llama/Meta-Llama-3.1-8B
+      role: subject
+      serving:
+        base_url: http://localhost:8000/v1
+        api_key: EMPTY
+        dtype: bfloat16
+        max_model_len: 8192
+        tensor_parallel_size: 1
+      generation_defaults:
+        temperature: 0.7
+        top_p: 0.95
+        max_new_tokens: 1024
+      tokenizer:
+        chat_template: null

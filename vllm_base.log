@@ -1,0 +1,880 @@
+INFO 05-05 13:26:39 api_server.py:712] vLLM API server version 0.6.6
+INFO 05-05 13:26:39 api_server.py:713] args: Namespace(subparser='serve', model_tag='meta-llama/Meta-Llama-3.1-8B', config='', host=None, port=8000, uvicorn_log_level='info', allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, chat_template_content_format='auto', response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, ssl_cert_reqs=0, root_path=None, middleware=[], return_tokens_as_token_ids=False, disable_frontend_multiprocessing=False, enable_request_id_headers=False, enable_auto_tool_choice=False, tool_call_parser=None, tool_parser_plugin='', model='meta-llama/Meta-Llama-3.1-8B', task='auto', tokenizer=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=False, allowed_local_media_path=None, download_dir=None, load_format='auto', config_format=<ConfigFormat.AUTO: 'auto'>, dtype='bfloat16', kv_cache_dtype='auto', quantization_param_path=None, max_model_len=8192, guided_decoding_backend='xgrammar', logits_processor_pattern=None, distributed_executor_backend=None, worker_use_ray=False, pipeline_parallel_size=1, tensor_parallel_size=1, max_parallel_loading_workers=None, ray_workers_use_nsight=False, block_size=None, enable_prefix_caching=None, disable_sliding_window=False, use_v2_block_manager=True, num_lookahead_slots=0, seed=0, swap_space=4, cpu_offload_gb=0, gpu_memory_utilization=0.45, num_gpu_blocks_override=None, max_num_batched_tokens=None, max_num_seqs=None, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, hf_overrides=None, enforce_eager=True, max_seq_len_to_capture=8192, disable_custom_all_reduce=False, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config=None, limit_mm_per_prompt=None, mm_processor_kwargs=None, disable_mm_preprocessor_cache=False, enable_lora=False, enable_lora_bias=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=False, max_prompt_adapters=1, max_prompt_adapter_token=0, device='auto', num_scheduler_steps=1, multi_step_stream_outputs=True, scheduler_delay_factor=0.0, enable_chunked_prefill=None, speculative_model=None, speculative_model_quantization=None, num_speculative_tokens=None, speculative_disable_mqa_scorer=False, speculative_draft_tensor_parallel_size=None, speculative_max_model_len=None, speculative_disable_by_batch_size=None, ngram_prompt_lookup_max=None, ngram_prompt_lookup_min=None, spec_decoding_acceptance_method='rejection_sampler', typical_acceptance_sampler_posterior_threshold=None, typical_acceptance_sampler_posterior_alpha=None, disable_logprobs_during_spec_decoding=None, model_loader_extra_config=None, ignore_patterns=[], preemption_mode=None, served_model_name=None, qlora_adapter_name_or_path=None, otlp_traces_endpoint=None, collect_detailed_traces=None, disable_async_output_proc=False, scheduling_policy='fcfs', override_neuron_config=None, override_pooler_config=None, compilation_config=None, kv_transfer_config=None, worker_cls='auto', generation_config=None, disable_log_requests=False, max_log_len=None, disable_fastapi_docs=False, enable_prompt_tokens_details=False, dispatch_function=<function serve at 0x7f2751f36980>)
+INFO 05-05 13:26:39 api_server.py:199] Started engine process with PID 4103914
+INFO 05-05 13:26:50 config.py:510] This model supports multiple tasks: {'reward', 'classify', 'generate', 'embed', 'score'}. Defaulting to 'generate'.
+WARNING 05-05 13:26:50 cuda.py:98] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+WARNING 05-05 13:26:50 config.py:642] Async output processing is not supported on the current platform type cuda.
+INFO 05-05 13:26:56 config.py:510] This model supports multiple tasks: {'classify', 'generate', 'score', 'embed', 'reward'}. Defaulting to 'generate'.
+WARNING 05-05 13:26:56 cuda.py:98] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+WARNING 05-05 13:26:56 config.py:642] Async output processing is not supported on the current platform type cuda.
+INFO 05-05 13:26:56 llm_engine.py:234] Initializing an LLM engine (v0.6.6) with config: model='meta-llama/Meta-Llama-3.1-8B', speculative_config=None, tokenizer='meta-llama/Meta-Llama-3.1-8B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=8192, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Meta-Llama-3.1-8B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"candidate_compile_sizes":[],"compile_sizes":[],"capture_sizes":[],"max_capture_size":0}, use_cached_outputs=True, 
+INFO 05-05 13:26:58 selector.py:120] Using Flash Attention backend.
+INFO 05-05 13:27:05 model_runner.py:1094] Starting to load model meta-llama/Meta-Llama-3.1-8B...
+INFO 05-05 13:27:10 weight_utils.py:251] Using model weights format ['*.safetensors']
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:55<02:45, 55.01s/it]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [04:42<05:12, 156.19s/it]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [09:06<03:25, 205.49s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [13:46<00:00, 234.95s/it]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [13:46<00:00, 206.57s/it]
+
+INFO 05-05 13:40:57 model_runner.py:1099] Loading model weights took 14.9888 GB
+ERROR 05-05 13:41:02 engine.py:366] Error in memory profiling. Initial free memory 23279960064, current free memory 31151947776. This happens when the GPU memory was not properly cleaned up before initializing the vLLM instance.
+ERROR 05-05 13:41:02 engine.py:366] Traceback (most recent call last):
+ERROR 05-05 13:41:02 engine.py:366]   File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/engine.py", line 357, in run_mp_engine
+ERROR 05-05 13:41:02 engine.py:366]     engine = MQLLMEngine.from_engine_args(engine_args=engine_args,
+ERROR 05-05 13:41:02 engine.py:366]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 05-05 13:41:02 engine.py:366]   File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/engine.py", line 119, in from_engine_args
+ERROR 05-05 13:41:02 engine.py:366]     return cls(ipc_path=ipc_path,
+ERROR 05-05 13:41:02 engine.py:366]            ^^^^^^^^^^^^^^^^^^^^^^
+ERROR 05-05 13:41:02 engine.py:366]   File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/engine.py", line 71, in __init__
+ERROR 05-05 13:41:02 engine.py:366]     self.engine = LLMEngine(*args, **kwargs)
+ERROR 05-05 13:41:02 engine.py:366]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 05-05 13:41:02 engine.py:366]   File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/llm_engine.py", line 276, in __init__
+ERROR 05-05 13:41:02 engine.py:366]     self._initialize_kv_caches()
+ERROR 05-05 13:41:02 engine.py:366]   File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/llm_engine.py", line 416, in _initialize_kv_caches
+ERROR 05-05 13:41:02 engine.py:366]     self.model_executor.determine_num_available_blocks())
+ERROR 05-05 13:41:02 engine.py:366]     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 05-05 13:41:02 engine.py:366]   File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/executor/gpu_executor.py", line 68, in determine_num_available_blocks
+ERROR 05-05 13:41:02 engine.py:366]     return self.driver_worker.determine_num_available_blocks()
+ERROR 05-05 13:41:02 engine.py:366]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 05-05 13:41:02 engine.py:366]   File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+ERROR 05-05 13:41:02 engine.py:366]     return func(*args, **kwargs)
+ERROR 05-05 13:41:02 engine.py:366]            ^^^^^^^^^^^^^^^^^^^^^
+ERROR 05-05 13:41:02 engine.py:366]   File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/worker/worker.py", line 205, in determine_num_available_blocks
+ERROR 05-05 13:41:02 engine.py:366]     self._assert_memory_footprint_increased_during_profiling()
+ERROR 05-05 13:41:02 engine.py:366]   File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/worker/worker.py", line 254, in _assert_memory_footprint_increased_during_profiling
+ERROR 05-05 13:41:02 engine.py:366]     assert self.init_gpu_memory - free_gpu_memory > 0, (
+ERROR 05-05 13:41:02 engine.py:366]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 05-05 13:41:02 engine.py:366] AssertionError: Error in memory profiling. Initial free memory 23279960064, current free memory 31151947776. This happens when the GPU memory was not properly cleaned up before initializing the vLLM instance.
+Process SpawnProcess-1:
+Traceback (most recent call last):
+  File "/home/katyal/.pyenv/versions/3.11.9/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/home/katyal/.pyenv/versions/3.11.9/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/engine.py", line 368, in run_mp_engine
+    raise e
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/engine.py", line 357, in run_mp_engine
+    engine = MQLLMEngine.from_engine_args(engine_args=engine_args,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/engine.py", line 119, in from_engine_args
+    return cls(ipc_path=ipc_path,
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/engine.py", line 71, in __init__
+    self.engine = LLMEngine(*args, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/llm_engine.py", line 276, in __init__
+    self._initialize_kv_caches()
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/llm_engine.py", line 416, in _initialize_kv_caches
+    self.model_executor.determine_num_available_blocks())
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/executor/gpu_executor.py", line 68, in determine_num_available_blocks
+    return self.driver_worker.determine_num_available_blocks()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/worker/worker.py", line 205, in determine_num_available_blocks
+    self._assert_memory_footprint_increased_during_profiling()
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/worker/worker.py", line 254, in _assert_memory_footprint_increased_during_profiling
+    assert self.init_gpu_memory - free_gpu_memory > 0, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Error in memory profiling. Initial free memory 23279960064, current free memory 31151947776. This happens when the GPU memory was not properly cleaned up before initializing the vLLM instance.
+[rank0]:[W505 13:41:03.153758703 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+Task exception was never retrieved
+future: <Task finished name='Task-2' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-5' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-6' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-15' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-17' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-18' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-19' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-20' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-21' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-22' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-23' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-24' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-25' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-26' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-27' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-28' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-29' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-30' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-31' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-32' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-33' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-34' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-35' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-36' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-37' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-38' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-39' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-40' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-41' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-42' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-43' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-44' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-45' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-46' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-47' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-48' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-49' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-50' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-51' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-52' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-57' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-53' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-54' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-55' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-56' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-58' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-59' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-60' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-61' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-62' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-63' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-64' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-65' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-66' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-67' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-68' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-69' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-70' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-71' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-72' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-73' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-74' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-75' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-76' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-77' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-78' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-79' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-81' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-80' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-82' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-83' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-84' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-85' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Task exception was never retrieved
+future: <Task finished name='Task-86' coro=<MQLLMEngineClient.run_output_handler_loop() done, defined at /home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py:178> exception=ZMQError('Operation not supported')>
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/engine/multiprocessing/client.py", line 184, in run_output_handler_loop
+    while await self.output_socket.poll(timeout=VLLM_RPC_TIMEOUT
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/zmq/_future.py", line 386, in poll
+    raise _zmq.ZMQError(_zmq.ENOTSUP)
+zmq.error.ZMQError: Operation not supported
+Traceback (most recent call last):
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/bin/vllm", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/scripts.py", line 201, in main
+    args.dispatch_function(args)
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/scripts.py", line 42, in serve
+    uvloop.run(run_server(args))
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/uvloop/__init__.py", line 92, in run
+    return runner.run(wrapper())
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/.pyenv/versions/3.11.9/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/uvloop/__init__.py", line 48, in wrapper
+    return await main
+           ^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/entrypoints/openai/api_server.py", line 740, in run_server
+    async with build_async_engine_client(args) as engine_client:
+  File "/home/katyal/.pyenv/versions/3.11.9/lib/python3.11/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/entrypoints/openai/api_server.py", line 118, in build_async_engine_client
+    async with build_async_engine_client_from_engine_args(
+  File "/home/katyal/.pyenv/versions/3.11.9/lib/python3.11/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/katyal/Documents/Artificial-Stakes-for-LLM-Risk-Reasoning/.venv/lib/python3.11/site-packages/vllm/entrypoints/openai/api_server.py", line 223, in build_async_engine_client_from_engine_args
+    raise RuntimeError(
+RuntimeError: Engine process failed to start. See stack trace for the root cause.

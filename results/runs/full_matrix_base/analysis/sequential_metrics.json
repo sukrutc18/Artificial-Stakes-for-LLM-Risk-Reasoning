@@ -1,0 +1,94 @@
+{
+  "by_cell": [
+    {
+      "cell_id": "bare_baseline__sequential_budget__llama31_8b_base__seed42",
+      "condition": "bare_baseline",
+      "dataset": "sequential_budget",
+      "model": "llama31_8b_base",
+      "seed": 42,
+      "n_sessions": 3,
+      "cumulative_regret_final_mean": 4.000000000000001,
+      "budget_efficiency_mean": 1.0,
+      "recovery_rate_mean": 0.0,
+      "mistake_propagation_mean": 0.0
+    },
+    {
+      "cell_id": "cot_only__sequential_budget__llama31_8b_base__seed42",
+      "condition": "cot_only",
+      "dataset": "sequential_budget",
+      "model": "llama31_8b_base",
+      "seed": 42,
+      "n_sessions": 3,
+      "cumulative_regret_final_mean": 1.0390650206355831,
+      "budget_efficiency_mean": 1.5999999999999999,
+      "recovery_rate_mean": 0.0,
+      "mistake_propagation_mean": 0.0
+    },
+    {
+      "cell_id": "persistent_stakes__sequential_budget__llama31_8b_base__seed42",
+      "condition": "persistent_stakes",
+      "dataset": "sequential_budget",
+      "model": "llama31_8b_base",
+      "seed": 42,
+      "n_sessions": 3,
+      "cumulative_regret_final_mean": 0.6085837906875167,
+      "budget_efficiency_mean": 1.4333333333333333,
+      "recovery_rate_mean": 0.0,
+      "mistake_propagation_mean": 0.0
+    },
+    {
+      "cell_id": "surface_stakes__sequential_budget__llama31_8b_base__seed42",
+      "condition": "surface_stakes",
+      "dataset": "sequential_budget",
+      "model": "llama31_8b_base",
+      "seed": 42,
+      "n_sessions": 3,
+      "cumulative_regret_final_mean": 0.9782307197689901,
+      "budget_efficiency_mean": 1.5833333333333333,
+      "recovery_rate_mean": 0.0,
+      "mistake_propagation_mean": 0.0
+    }
+  ],
+  "aggregated_by_condition_dataset_model": {
+    "bare_baseline__sequential_budget__llama31_8b_base": {
+      "condition": "bare_baseline",
+      "dataset": "sequential_budget",
+      "model": "llama31_8b_base",
+      "n_cells": 1,
+      "cumulative_regret_final_mean": 4.000000000000001,
+      "budget_efficiency_mean": 1.0,
+      "recovery_rate_mean": 0.0,
+      "mistake_propagation_mean": 0.0
+    },
+    "cot_only__sequential_budget__llama31_8b_base": {
+      "condition": "cot_only",
+      "dataset": "sequential_budget",
+      "model": "llama31_8b_base",
+      "n_cells": 1,
+      "cumulative_regret_final_mean": 1.0390650206355831,
+      "budget_efficiency_mean": 1.5999999999999999,
+      "recovery_rate_mean": 0.0,
+      "mistake_propagation_mean": 0.0
+    },
+    "persistent_stakes__sequential_budget__llama31_8b_base": {
+      "condition": "persistent_stakes",
+      "dataset": "sequential_budget",
+      "model": "llama31_8b_base",
+      "n_cells": 1,
+      "cumulative_regret_final_mean": 0.6085837906875167,
+      "budget_efficiency_mean": 1.4333333333333333,
+      "recovery_rate_mean": 0.0,
+      "mistake_propagation_mean": 0.0
+    },
+    "surface_stakes__sequential_budget__llama31_8b_base": {
+      "condition": "surface_stakes",
+      "dataset": "sequential_budget",
+      "model": "llama31_8b_base",
+      "n_cells": 1,
+      "cumulative_regret_final_mean": 0.9782307197689901,
+      "budget_efficiency_mean": 1.5833333333333333,
+      "recovery_rate_mean": 0.0,
+      "mistake_propagation_mean": 0.0
+    }
+  }
+}

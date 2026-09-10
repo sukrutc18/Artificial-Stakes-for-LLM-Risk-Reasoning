@@ -1,0 +1,8 @@
+{
+  "n_episodes": 3,
+  "mean_episode_reward": 2.9609349793644157,
+  "cumulative_regret_final": 3.117195061906749,
+  "budget_efficiency_mean": 1.5999999999999999,
+  "recovery_rate": 0.0,
+  "mistake_propagation": 0.0
+}
