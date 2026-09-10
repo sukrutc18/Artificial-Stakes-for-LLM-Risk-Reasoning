@@ -114,14 +114,6 @@ pytest -q
 Tests are currently scaffolded as `xfail` stubs. They will turn green as each
 module is implemented.
 
-## Plan of action (from the proposal)
-
-- [x] Scaffold the repo and config matrix
-- [ ] Build dataset pipeline (synthetic + real-world + sequential env)
-- [ ] Run initial experiments and adjust methodology based on feasibility
-- [ ] Full experimental run across conditions and models
-- [ ] Analyze results, write up findings, and submit report by **May 7**
-
 ## License
 
 MIT. See [`LICENSE`](LICENSE).
