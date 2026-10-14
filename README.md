@@ -5,6 +5,8 @@
 Shrey Katyal, Dev Sinha, Aditya Dube, Shreekar Earanti, Atiksh Shah,
 Sukrut Chikodikar, Taran Savoor
 
+Final report: [`report/final/Do-Artificial-Stakes-Improve-LLM-Risk-Reasoning.pdf`](report/final/Do-Artificial-Stakes-Improve-LLM-Risk-Reasoning.pdf)
+
 ## Overview
 
 LLMs are increasingly deployed for reasoning in high-stakes domains (finance,
@@ -20,6 +22,7 @@ and better probability calibration than matched sequential baselines receiving
 the same feedback without stakes.
 
 See [`report/FMProposal.pdf`](report/FMProposal.pdf) for the full proposal.
+
 
 ## Experimental matrix
 
